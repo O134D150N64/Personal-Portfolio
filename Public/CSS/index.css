@@ -128,7 +128,7 @@ body {
 
 .matrix-char {
     position: absolute;
-    color: var(--matrix-lred);
+    color: var(--matrix-red);
     font-family: var(--font1);
     font-size: 14px;
     animation: matrixFall 2s linear infinite;
