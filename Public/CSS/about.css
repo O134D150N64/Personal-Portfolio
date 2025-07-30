@@ -45,12 +45,56 @@ body {
 .typewriter-text {
     position: relative;
     color: var(--red);
-    font-family: var(--font2);
+    font-family: var(--font1);
     font-size: 3rem;
     letter-spacing: 0.1rem;
     overflow: hidden;
     white-space: nowrap;
-    animation: typing 2s steps(30, end), blink-caret .5s step-end infinite alternate;
+    animation: none;
+    border: none;
+    width: auto;
+}
+
+/* Loading Bar Styles */
+.loading-bar-container {
+    width: 300px;
+    height: 4px;
+    background: var(--dark-grey);
+    margin: 2rem auto 0;
+    border-radius: 2px;
+    overflow: hidden;
+}
+        
+.loading-bar {
+    height: 100%;
+    background: var(--red);
+    width: 0%;
+    transition: width 0.1s ease;
+    border-radius: 2px;
+}
+
+/* Position Box Styles */
+.position-box {
+    background: var(--dark-grey);
+    color: var(--red);
+    font-family: var(--font1);
+    font-size: 0.9rem;
+    padding: 0.5rem 1rem;
+    margin: 1.5rem auto 0;
+    width: fit-content;
+    border: 1px solid var(--red);
+    border-radius: 4px;
+    letter-spacing: 0.05rem;
+}
+
+/* Custom Cursor for Manual Typewriter */
+.cursor {
+    animation: blink-cursor 0.5s step-end infinite alternate;
+}
+
+@keyframes blink-cursor {
+    from, to { opacity: 1; }
+    50% { opacity: 0; }
 }
 
 @keyframes typing {
