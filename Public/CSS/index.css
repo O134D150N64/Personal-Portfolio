@@ -1,0 +1,289 @@
+/* ========================================
+    BASE STYLES & VARIABLES
+    ======================================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --glitch-yellow: #ffe70d; ;
+    --glitch-lred: #fd6763;
+    --matrix-red: #ff0000;
+    --bg-dark: #000;
+    --bg-gradient: linear-gradient(45deg, #000, #111);
+    --portfolio-gradient: linear-gradient(180deg, #000000 0%, #000000 40%, #ff0000);
+    --font1: 'android_101';
+    --font2: 'retraconsole';
+}
+
+body {
+    font-family: var(--font1);
+    background: var(--bg-dark);
+    overflow: hidden;   
+}
+
+/* ========================================
+    INTRO ANIMATION STYLES
+    ======================================== */
+.intro-screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: var(--bg-gradient);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    animation: fadeOut 0.5s ease-in-out 6s forwards;
+}
+
+.glitch-container {
+    position: relative;
+    font-size: clamp(3rem, 8vw, 8rem);
+    font-weight: bold;
+    color: #fff;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+}
+
+.glitch-text {
+    position: relative;
+    font-family: var(--font1);
+    letter-spacing: 0.2em;
+}
+
+.letter {
+    display: inline-block;
+    position: relative;
+    animation: letterGlitch 0.1s infinite;
+}
+
+.letter.final {
+    animation: none;
+    color: var(--matrix-red);
+    text-shadow: 0 0 10px var(--matrix-red);
+}
+
+@keyframes letterGlitch {
+    0%, 100% { 
+        transform: translateY(0) skewX(0deg);
+        color: #fff;
+    }
+    25% { 
+        transform: translateY(-2px) skewX(1deg);
+        color: var(--glitch-lred);
+    }
+    75% { 
+        transform: translateY(2px) skewX(-1deg);
+        color: var(--glitch-yellow);
+    }
+}
+
+@keyframes fadeOut {
+    to {
+        opacity: 0;
+        visibility: hidden;
+        transform: scale(1.1);
+    }
+}
+
+/* ========================================
+    MATRIX EFFECTS
+    ======================================== */
+.scanlines {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        90deg,
+        transparent 50%,
+        rgba(255, 255, 255, 0.03) 50%
+    );
+    background-size: 2px 2px;
+    animation: scanlines 0.1s infinite linear;
+    pointer-events: none;
+}
+
+@keyframes scanlines {
+    0% { transform: translateY(0); }
+    100% { transform: translateY(2px); }
+}
+
+.matrix-rain {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: transparent;
+    pointer-events: none;
+    opacity: 0.3;
+}
+
+.matrix-char {
+    position: absolute;
+    color: var(--matrix-red);
+    font-family: var(--font1);
+    font-size: 14px;
+    animation: matrixFall 2s linear infinite;
+}
+
+@keyframes matrixFall {
+    0% {
+        transform: translateY(-100vh);
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(100vh);
+        opacity: 0;
+    }
+}
+
+/* ========================================
+    MAIN PORTFOLIO CONTENT
+    ======================================== */
+.main-content {
+    position: relative;
+    min-height: 100vh;
+    background: var(--portfolio-gradient);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    animation: slideIn 1s ease-out 6.5s forwards;
+}
+
+.portfolio-container {
+    text-align: center;
+    color: white;
+    padding: 2rem;
+}
+
+.portfolio-container h1 {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    opacity: 0;
+    animation: fadeInUp 0.8s ease-out 7s forwards;
+}
+
+.portfolio-container p {
+    font-size: 1.2rem;
+    opacity: 0;
+    animation: fadeInUp 0.8s ease-out 7.5s forwards;
+}
+
+.skip-intro {
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    background: rgba(255, 255, 255, 0.1);
+    color: white;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+    font-family: inherit;
+    font-size: 0.9rem;
+    backdrop-filter: blur(10px);
+    transition: all 0.3s ease;
+    z-index: 1001;
+}
+
+.skip-intro:hover {
+    background: rgba(255, 255, 255, 0.2);
+    transform: translateY(-2px);
+}
+
+.view-more {
+    position: relative;
+    background: rgba(255, 255, 255, 0.1);
+    color: white;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+    font-family: inherit;
+    font-size: 0.9rem;
+    backdrop-filter: blur(10px);
+    transition: all 0.3s ease;
+    z-index: 1001;
+    margin-top: 1rem;
+    opacity: 0;
+    animation: fadeInUp 0.8s ease-out 8s forwards;
+}
+
+/* ========================================
+    TRANSITIONS & ANIMATIONS
+    ======================================== */
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ========================================
+    RESPONSIVE STYLES
+    ======================================== */
+@media (max-width: 768px) {
+    .glitch-container {
+        font-size: clamp(2rem, 10vw, 4rem);
+    }
+            
+    .portfolio-container h1 {
+        font-size: 2rem;
+    }
+            
+    .skip-intro {
+        bottom: 1rem;
+        right: 1rem;
+        padding: 0.4rem 0.8rem;
+        font-size: 0.8rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .glitch-container {
+        font-size: clamp(1.5rem, 12vw, 3rem);
+    }
+            
+    .portfolio-container {
+        padding: 1rem;
+    }
+}
+
+/* ========================================
+    CUSTOM FONTS
+    ======================================== */
+@font-face {
+    font-family: 'retraconsole';
+    src: url('../Fonts/retraconsole/RetraConsole.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'android_101';
+    src: url('../Fonts/android_101/Android\ 101.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
