@@ -156,7 +156,7 @@ header h1 {
     min-height: 100vh;
     width: 100%;
     background: var(--bg);
-    display: flex;
+    display: block;
     overflow: auto;
 }
 
@@ -165,6 +165,7 @@ header h1 {
     display: flex;
     padding: 2rem;
     margin-bottom: 10rem;
+    overflow: hidden;
 }
 
 .portfolio-container1 img {
