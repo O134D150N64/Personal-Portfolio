@@ -33,7 +33,7 @@ function animateText() {
         }
                 
         // Progress to next letter with some randomness
-        if (Math.random() > 0.8) {
+        if (Math.random() > 0.75) {
             currentIteration += 1/3;
         }
     }, 50);
