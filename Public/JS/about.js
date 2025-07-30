@@ -32,6 +32,7 @@ const progressInterval = setInterval(() => {
 setTimeout(() => {
     const introScreen = document.getElementById('introScreen');
     const mainContent = document.getElementById('mainContent');
+    const portfolioContainers = document.querySelectorAll('.portfolio-container1, .portfolio-container2');
             
     // Fade out intro screen
     introScreen.style.transition = 'opacity 0.5s ease-out';
@@ -41,11 +42,16 @@ setTimeout(() => {
         introScreen.style.display = 'none';
         mainContent.style.display = 'flex';
                 
-        // Fade in main content
-        mainContent.style.opacity = '0';
-        mainContent.style.transition = 'opacity 0.5s ease-in';
+        // Fade in content containers only (not the background)
+        portfolioContainers.forEach(container => {
+            container.style.opacity = '0';
+            container.style.transition = 'opacity 0.5s ease-in';
+        });
+        
         setTimeout(() => {
-            mainContent.style.opacity = '1';
+            portfolioContainers.forEach(container => {
+                container.style.opacity = '1';
+            });
         }, 50);
     }, 500);
 }, 3000); // Wait 3 seconds (2s typing + 1s pause)
