@@ -73,20 +73,6 @@ body {
     border-radius: 2px;
 }
 
-/* Position Box Styles */
-.position-box {
-    background: var(--dark-grey);
-    color: var(--red);
-    font-family: var(--font1);
-    font-size: 0.9rem;
-    padding: 0.5rem 1rem;
-    margin: 1.5rem auto 0;
-    width: fit-content;
-    border: 1px solid var(--red);
-    border-radius: 4px;
-    letter-spacing: 0.05rem;
-}
-
 /* Custom Cursor for Manual Typewriter */
 .cursor {
     animation: blink-cursor 0.5s step-end infinite alternate;
