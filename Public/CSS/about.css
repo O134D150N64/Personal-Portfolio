@@ -164,8 +164,8 @@ header h1 {
     color: white;
     display: flex;
     padding: 2rem;
+    min-height: 350px;
     margin-bottom: 10rem;
-    overflow: hidden;
 }
 
 .portfolio-container1 img {
@@ -185,6 +185,7 @@ header h1 {
 
 .portfolio-container1 .text-container {
     display: flex;
+    flex: 1;
     flex-direction: column;
     margin-left: 2rem;
     margin-top: 1.5rem;
