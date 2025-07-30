@@ -222,19 +222,51 @@ header h1 {
 
 .portfolio-container2 {
     color: white;
-    background-image: var(--dark-grey);
-    width: 100%;
     display: flex;
     padding: 2rem;
-    margin-bottom: 10rem;
-    clear: both;
+    min-height: 350px;
+    margin-bottom: 5rem;
+    flex-direction: row-reverse; /* Reverse layout for variety */
 }
 
-.portfolio-container2 h1 {
+.portfolio-container2 .text-container {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    margin-right: 2rem;
+    margin-top: 1.5rem;
+}
+
+.portfolio-container2 .text-container h1 {
     font-family: var(--font1);
     font-size: 60px;
     margin-bottom: 10px;
-    margin-left: 15rem;
+    margin-right: 15rem;
+    text-align: right;
+}
+
+.portfolio-container2 .text-container h1:hover {
+    transform: scale(1.1);
+    text-shadow: var(--red) 0px 0px 10px;
+    transition: all 0.3s ease;
+}
+
+.portfolio-container2 .text-container p {
+    font-family: var(--font1);
+    font-size: 40px;
+    margin-top: 3.6rem;
+    border: 2px solid #555;
+    max-width: 1000px;
+    height: auto;
+    padding: 10px;
+    margin-left: auto;
+    text-align: right;
+}
+
+.portfolio-container2 .text-container p:hover {
+    box-shadow: var(--red) 0 0 10px 5px;
+    transform: scale(1.05);
+    transition: all 0.3s ease;
 }
 
 /*=======================================
