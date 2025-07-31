@@ -32,8 +32,8 @@ const progressInterval = setInterval(() => {
 setTimeout(() => {
     const introScreen = document.getElementById('introScreen');
     const mainContent = document.getElementById('mainContent');
-    const portfolioContainers = document.querySelectorAll('.portfolio-container1, .portfolio-container2');
-            
+    const portfolioContainers = document.querySelectorAll('.portfolio-container1, .portfolio-container2, portfolio-form');
+           
     // Fade out intro screen
     introScreen.style.transition = 'opacity 0.5s ease-out';
     introScreen.style.opacity = '0';

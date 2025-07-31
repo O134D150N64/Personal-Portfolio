@@ -16,6 +16,8 @@
     --portfolio-gradient: linear-gradient(180deg, #000000 0%, #000000 40%, #333);
     --font1: 'android_101';
     --font2: 'retraconsole';
+    --default-cursor: url('../Images/Cursors/Normal.svg'), auto;
+    --pointer-cursor: url('../Images/Cursors/Pointer.svg'), auto;
 }
 
 body {
