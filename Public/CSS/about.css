@@ -13,15 +13,16 @@
     --h-gradient: linear-gradient(45deg,#333, #555);
     --red: #ff0000;
     --dark-grey: #333;
-    --font1: 'android_101';
-    --font2: 'retraconsole';
-    --default-cursor: url('../Images/Cursors/Normal.svg'), auto;
-    --pointer-cursor: url('../Images/Cursors/Pointer.svg'), auto;
+    --font1: 'android_101', sans-serif;
+    --font2: 'retraconsole', monospace;
+    --default-cursor: auto;
+    --pointer-cursor: pointer;
 }
 
 body {
     background: var(--bg-image);
     overflow-x: hidden;
+    font-family: var(--font1);
 }
 
 body::before {
@@ -81,7 +82,7 @@ body::before {
     border-radius: 2px;
     overflow: hidden;
 }
-        
+                
 .loading-bar {
     height: 100%;
     background: var(--red);
@@ -100,16 +101,6 @@ body::before {
     50% { opacity: 0; }
 }
 
-@keyframes typing {
-    from { width: 0 }
-    to { width: 100% }
-}
-
-@keyframes blink-caret {
-    from, to { border-color: transparent }
-    50% { border-color: var(--red) }
-}
-
 @keyframes move {
     0% {
         background-position: left;
@@ -120,7 +111,7 @@ body::before {
 }
 
 /*=======================================
-    MAIN PAGE CONTENT
+    HEADER AND NAVIGATION
     ======================================== */
 header {
     display: flex;
@@ -151,6 +142,87 @@ header h1 {
     font-size: 50px;
 }
 
+.nav-menu {
+    position: fixed;
+    top: 4rem;
+    right: -300px;
+    width: 280px;
+    height: calc(100vh - 4rem);
+    background: linear-gradient(135deg, rgba(0,0,0,0.95), rgba(51,51,51,0.95));
+    backdrop-filter: blur(10px);
+    transition: right 0.3s ease;
+    z-index: 150;
+    padding: 2rem 0;
+    border-left: 2px solid var(--red);
+}
+
+.nav-menu.active {
+    right: 0;
+}
+
+.nav-menu ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.nav-menu li {
+    margin: 0;
+}
+
+.nav-menu a {
+    display: block;
+    color: #fff;
+    text-decoration: none;
+    padding: 1rem 2rem;
+    font-family: var(--font1);
+    font-size: 18px;
+    transition: all 0.3s ease;
+    border-bottom: 1px solid rgba(85, 85, 85, 0.3);
+}
+
+.nav-menu a:hover {
+    background: rgba(255, 0, 0, 0.1);
+    color: var(--red);
+    text-shadow: var(--red) 0 0 10px;
+    transform: translateX(10px);
+}
+
+.burger-menu {
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.burger-menu:hover {
+    transform: scale(1.1);
+    filter: drop-shadow(0 0 10px var(--red));
+}
+
+.burger-menu.active {
+    transform: rotate(90deg);
+}
+
+.nav-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 140;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+}
+
+.nav-overlay.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+/*=======================================
+    MAIN PAGE CONTENT
+    ======================================== */
 .main-content {
     margin-top: 8rem;
     gap: 5rem;
@@ -167,6 +239,7 @@ header h1 {
     padding: 2rem;
     min-height: 350px;
     margin-bottom: 10rem;
+    scroll-margin-top: 5rem;
 }
 
 .portfolio-container1 img {
@@ -232,6 +305,7 @@ header h1 {
     padding: 2rem;
     justify-content: center;
     flex-direction: column;
+    scroll-margin-top: 5rem;
 }
 
 .portfolio-container2 .text-container {
@@ -253,67 +327,7 @@ header h1 {
     transition: all 0.3s ease;
 }
 
-.portfolio-container2 .text-container .hobbies-container {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: center;
-    margin-top: 2rem;
-}
-
-.portfolio-container2 .text-container .hobbies-container .hobby {
-    position: relative;
-    width: auto;
-    height: auto;
-    display: flex;
-    flex-direction: column;
-    overflow: hidden;
-    margin-bottom: 2rem;
-    margin-right: 2rem;
-    border: 2px solid #555;
-    padding: 20px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: transform 0.3s ease;
-}
-
-.portfolio-container2 .text-container .hobbies-container .hobby:hover {
-    transform: scale(1.1);
-    color: var(--red);
-    transition: all 0.3s ease;
-}
-
-.portfolio-container2 .text-container .hobbies-container .hobby::after {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-image: linear-gradient(90deg, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0));
-    transform: translateX(-100%);
-    transition: transform 0.2s ease-out;
-}
-
-.portfolio-container2 .text-container .hobbies-container .hobby:hover::after {
-    transform: translateX(100%);
-    transition: transform 2s cubic-bezier(0.4, 0, 0.2, 1); 
-}
-
-.portfolio-container2 .text-container .hobbies-container .hobby img {
-    transform: scale(1.2);
-    object-fit: cover;
-    margin-bottom: 1rem;
-}
-
-.portfolio-container2 .text-container .hobbies-container .hobby h4 {
-    font-family: var(--font1);
-    font-size: 40px;
-    margin-left: 1rem;
-    margin-right: 1rem;
-}
-
+.portfolio-container2 .text-container .hobbies-container,
 .portfolio-container2 .text-container .skills-container {
     display: flex;
     flex-direction: row;
@@ -322,12 +336,14 @@ header h1 {
     margin-top: 2rem;
 }
 
+.portfolio-container2 .text-container .hobbies-container .hobby,
 .portfolio-container2 .text-container .skills-container .skill {
     position: relative;
     width: auto;
     height: auto;
     display: flex;
     flex-direction: column;
+    overflow: hidden;
     margin-bottom: 2rem;
     margin-right: 2rem;
     border: 2px solid #555;
@@ -335,15 +351,16 @@ header h1 {
     align-items: center;
     justify-content: center;
     transition: transform 0.3s ease;
-    overflow: hidden;
 }
 
+.portfolio-container2 .text-container .hobbies-container .hobby:hover,
 .portfolio-container2 .text-container .skills-container .skill:hover {
     transform: scale(1.1);
     color: var(--red);
     transition: all 0.3s ease;
 }
 
+.portfolio-container2 .text-container .hobbies-container .hobby::after,
 .portfolio-container2 .text-container .skills-container .skill::after {
     content: "";
     position: absolute;
@@ -356,17 +373,20 @@ header h1 {
     transition: transform 0.2s ease-out;
 }
 
+.portfolio-container2 .text-container .hobbies-container .hobby:hover::after,
 .portfolio-container2 .text-container .skills-container .skill:hover::after {
     transform: translateX(100%);
     transition: transform 2s cubic-bezier(0.4, 0, 0.2, 1); 
 }
 
+.portfolio-container2 .text-container .hobbies-container .hobby img,
 .portfolio-container2 .text-container .skills-container .skill img {
     transform: scale(1.2);
     object-fit: cover;
     margin-bottom: 1rem;
 }
 
+.portfolio-container2 .text-container .hobbies-container .hobby h4,
 .portfolio-container2 .text-container .skills-container .skill h4 {
     font-family: var(--font1);
     font-size: 40px;
@@ -383,6 +403,7 @@ header h1 {
     padding: 2rem;
     min-height: 500px;
     margin-bottom: 5rem;
+    scroll-margin-top: 5rem;
 }
 
 .portfolio-form h1 {
@@ -401,12 +422,11 @@ header h1 {
 
 .portfolio-form form {
     align-items: center;
-    margin-top: 2rem;
+    margin: 2rem auto 0;
     border: 2px solid #555;
     padding: 20px;
     width: 350px;
     height: auto;
-    transform: translateX(160%);
     position: relative;
 }
 
@@ -468,6 +488,36 @@ footer {
     }
     100% {
         opacity: 1;
+    }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .portfolio-container1 {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .portfolio-container1 .text-container h1 {
+        margin-left: 0;
+        font-size: 40px;
+    }
+
+    .portfolio-container1 .text-container p {
+        font-size: 24px;
+    }
+
+    .portfolio-container2 .text-container h1 {
+        font-size: 40px;
+    }
+
+        .portfolio-form h1 {
+        font-size: 40px;
+    }
+
+    .nav-menu {
+        width: 100%;
+        right: -100%;
     }
 }
 

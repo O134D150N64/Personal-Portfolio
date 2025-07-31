@@ -11,8 +11,24 @@
 <body>
     <header>
         <h1><a href="index.html">Mutale</a></h1>
-        <img src="Images/SVG/Burger.svg" width="50px" height="50px" alt="Burger">
+        <div class="burger-menu" id="burgerMenu">
+            <img src="Images/SVG/Burger.svg" width="50px" height="50px" alt="Burger Menu">
+        </div>
     </header>
+
+    <!-- Navigation Menu -->
+    <nav class="nav-menu" id="navMenu">
+        <ul>
+            <li><a href="#about" class="nav-link">About Me</a></li>
+            <li><a href="#hobbies" class="nav-link">My Hobbies</a></li>
+            <li><a href="#skills" class="nav-link">My Skills</a></li>
+            <li><a href="#contact" class="nav-link">Get in Touch</a></li>
+            <li><a href="index.html">Back to Home</a></li>
+        </ul>
+    </nav>
+
+    <!-- Navigation Overlay -->
+    <div class="nav-overlay" id="navOverlay"></div>
 
     <main>
         <!-- Intro Screen with Typewriter Effect -->
@@ -30,7 +46,7 @@
 
         <!-- Main Page Content -->
         <div class="main-content" id="mainContent" style="display: none;">
-            <div class="portfolio-container1">
+            <div class="portfolio-container1" id="about">
                 <img src="Images/Mutale.jpg" alt="Mutale">
                 <div class="text-container">
                     <h1>About me</h1>
@@ -38,78 +54,75 @@
                 </div>
             </div>
 
-            <div class="portfolio-container2">
+            <div class="portfolio-container2" id="hobbies">
                 <div class="text-container">
                     <h1>My Hobbies</h1>
 
                     <div class="hobbies-container">
                         <div class="hobby">
-                            <img src="Images/SVG/Controller.svg" width="50px" height="50px" alt="Vg">
+                            <img src="Images/SVG/Controller.svg" width="50px" height="50px" alt="Controller">
                             <h4>Video Games</h4>
                         </div>
 
                         <div class="hobby">
-                            <img src="Images/SVG/Crunchyroll.svg" width="50px" height="50px" alt="Am">
-                            <br>
+                            <img src="Images/SVG/Crunchyroll.svg" width="50px" height="50px" alt="Crunchyroll">
                             <h4>Anime/Manga</h4>
                         </div>
 
                         <div class="hobby">
-                            <img src="Images/SVG/DAW.svg" width="50px" height="50px" alt="M">
+                            <img src="Images/SVG/DAW.svg" width="50px" height="50px" alt="DAW">
                             <h4>Music Production</h4>
                         </div>
 
                         <div class="hobby">
-                            <img src="Images/SVG/Github.svg" width="50px" height="50px" alt="G">
+                            <img src="Images/SVG/Github.svg" width="50px" height="50px" alt="Github">
                             <h4>Programming</h4>
                         </div>
 
                         <div class="hobby">
-                            <img src="Images/SVG/Adobe_AfterEffects.svg" width="50px" height="50px" alt="Ve">
+                            <img src="Images/SVG/Adobe_AfterEffects.svg" width="50px" height="50px" alt="After Effects">
                             <h4>Video Editing</h4>
                         </div>
 
                         <div class="hobby">
-                            <img src="Images/SVG/Adobe_Illustrator.svg"  width="50px" height="50px" alt="D">
+                            <img src="Images/SVG/Adobe_Illustrator.svg" width="50px" height="50px" alt="Illustrator">
                             <h4>Design</h4>
                         </div>
                     </div>
 
-                    <br>
-                    <br>
-                    <br>
-                    <h1>My Skills</h1>
+                    <br><br><br>
+                    <h1 id="skills">My Skills</h1>
 
                     <div class="skills-container">
                         <div class="skill">
-                            <img src="Images/SVG/HTML.svg" width="50px" height="50px" alt="H">
+                            <img src="Images/SVG/HTML.svg" width="50px" height="50px" alt="HTML">
                             <h4>HTML</h4>
                         </div>
 
                         <div class="skill">
-                            <img src="Images/SVG/CSS.svg" width="50px" height="50px" alt="C">
+                            <img src="Images/SVG/CSS.svg" width="50px" height="50px" alt="CSS">
                             <h4>CSS</h4>
                         </div>
 
                         <div class="skill">
-                            <img src="Images/SVG/JS.svg" width="50px" height="50px" alt="J">
+                            <img src="Images/SVG/JS.svg" width="50px" height="50px" alt="JavaScript">
                             <h4>JavaScript</h4>
                         </div>
 
                         <div class="skill">
-                            <img src="Images/SVG/Python.svg" width="50px" height="50px" alt="P">
+                            <img src="Images/SVG/Python.svg" width="50px" height="50px" alt="Python">
                             <h4>Python</h4>
                         </div>
 
                         <div class="skill">
-                            <img src="Images/SVG/Java.svg" width="50px" height="50px" alt="J">
+                            <img src="Images/SVG/Java.svg" width="50px" height="50px" alt="Java">
                             <h4>Java</h4>
                         </div>
                     </div>
                 </div>
             </div>
 
-            <div class="portfolio-form">
+            <div class="portfolio-form" id="contact">
                 <h1>Get in Touch</h1>
                 <form>
                     <label for="name">Name:</label>
